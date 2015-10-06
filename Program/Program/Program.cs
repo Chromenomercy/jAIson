@@ -22,14 +22,14 @@ namespace Program
             Console.WriteLine(newInput);
         }
 
-        //remove any punctuation, return first sentence in question
+        //remove any punctuation, return first sentence in question if more than one is given
         static string filterText(string input)
         {
             string newInputText = input;
             if (newInputText != string.Empty)
             {
-                int length = newInputText.Length;
                 newInputText = newInputText.Replace(",", "");
+                newInputText = newInputText.Split('.')[0];
             }
 
             return newInputText;
