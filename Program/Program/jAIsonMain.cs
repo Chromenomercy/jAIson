@@ -14,13 +14,14 @@ namespace Program
         static string directoryPath;
         static XmlDocument jAIdoc;
         static XmlNode root;
+        static List<Tuple<SentenceType, short>> words;
 
         static void Main(string[] args)
         {
             directoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"jAIson");
             dictionaryPath = Path.Combine(directoryPath, @"biases.xml");
             jAIdoc = new XmlDocument();
-            Console.WriteLine("I am jAIson, son of Bobnomercy. It's nice to have a friend to talk to, ask me a question please.");
+            Console.WriteLine("I am jAIson, son of Bobnomercy. It's nice to have a friend to talk to... please ask me a question.");
             GetBiases(Console.ReadLine());
             Console.ReadLine();
         }
@@ -29,7 +30,7 @@ namespace Program
         {
             string newInput = FilterText(input);
             Load();
-            Console.WriteLine(newInput);
+            Console.WriteLine("[Debug] " + newInput);
         }
         
         static public void Load()
